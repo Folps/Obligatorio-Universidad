@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<!-- Autores  - Felipe Iraola - 196542 - Juan Cabrera - 169448-->
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Obligatorio 1 - Felipe Iraola </title>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<link rel="stylesheet" href='css/estilos.css'>
+	<script src='js/classes.js'></script>
+	<script src='js/funciones.js'></script>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+
+
+</head>
+<!-- Tener solo un section con varios articles  OK
+* Sin margin
+*Centrar titulo de nav OK
+* donaciones sin formulario!!! OK
+*campo de monto es numerico OK
+-->
+
+<body>
+
+	<section class='SectionFull'>
+		<article>
+			<div class=wrapperNav>
+				<nav>
+					<h1 id="TituloMenu">Sistema de donaciones</h1>
+					<img src="IMG/logo.jpg" alt="Corazon en manos" width="100" height="100">
+					<p id=donantes><a href="#MenuDonantes">Donantes</a></p>
+					<p id=donaciones><a href="#MenuDonaciones">Donaciones</a></p>
+					<p id=estad><a href="#MenuEstadistica">Estadísticas</a></p>
+					<br>
+
+					<div class='wrapper'>
+						<div class='total'>
+							<p id='TotalGen'>Total general <br>
+								<p id='MontoTotal'>$ 0</p>
+						</div>
+
+						<div class='totalM'>
+							<p id=MontoMayor>Monto Donación Mayor<br>
+							</p>
+							<p id='TotalResultado'>$ 0</p>
+						</div>
+				</nav>
+			</div>
+
+		</article>
+
+
+		<article id="Article1">
+			<h2 id=MenuDonantes>Registro de donantes</h2>
+			<!--Registro de donantes-->
+			<form id='formularioDonantes' action="#" method="get">
+				<label for="IdNombreDonante">Nombre:</label>
+				<input type="text" id="IdNombreDonante" name="Nombre" placeholder="Nombre" style="width:15%"
+					minlength='0' maxlength='20' required>
+				<label for="direccion">Dirección:</label>
+				<input type="text" id="IdDireccionDonante" name="Direccion" placeholder="Direccion" style="width:15%">
+				<label for="telefono">Telefono:</label>
+				<input type="number" id="IdTelefonoDonante" name="Telefono" placeholder="Telefono" style="width:15%"
+					minlength='0' maxlength='20' required>
+				<input type="button" value="Agregar" id='bttnRegistro'>
+			</form>
+		</article>
+
+
+		<article id="Article2">
+
+			<form action="#" method="get">
+				<h2 id=MenuDonaciones>Registro de Donaciones</h2>
+				<!--Registro de donaciones-->
+				<label for="nombre">Donantes:</label>
+				<select id="IdNombreSelect">
+				</select>
+				<label for="modo">Modo:</label>
+				<select id="idModo">
+					<option value="efectivo">Efectivo</option>
+					<option value="transferencia">Transferencia</option>
+					<option value="canje">Canje</option>
+					<option value="mercaderia">Mercadería</option>
+					<option value="cheque">Cheque</option>
+					<option value="otros">Otros</option>
+				</select>
+				<label for="monto">Monto:</label>
+				<input type="number" id="idMonto" style="width: 5%" min=0 required>
+				<label for="comentario">Comentarios:</label>
+				<input type="text" id="idComentario" style="width:15%">
+				<input type="submit" value="Agregar" id='bttnDonaciones'>
+			</form>
+
+
+			<h4>Donaciones Registradas</h4>
+
+			<form id='orden'>
+				<label>Orden:</label>
+
+				<input type="radio" id="radioordenDecre" name="order" value="decre" checked>
+
+				<label for="ordenDecre">monto decreciente</label>
+
+				<input type="radio" id="radioordenCreciente" name="order" value="crecie">
+				<label for="ordenCreciente">nombre donante creciente</label>
+			</form>
+
+
+
+			<table id="idTablaDonantes" style="width:75%">
+				<thead>
+					<th>Donante</th>
+					<th>Modo</th>
+					<th>Monto</th>
+					<th>Comentarios</th>
+				</thead>
+				<tbody id="cuerpoTabla"></tbody>
+			</table>
+<br>
+			<label for="CheckBoxFilas"> Resaltar filas:</label>
+			<input type="checkbox" id="CheckBoxFilas" name="filas" onclick="checkedBox()">
+			<label for=" filasMonto"> de monto:</label>
+			<input type="text" id="filasMonto">
+		</article>
+
+
+
+		<article id="Article3">
+			<h2 id=MenuEstadistica>Estadísticas</h2>
+			<p id=idTotalDonaciones>Cantidad total de donaciones: 0</p>
+			<p id=idPromedioDonaciones>Promedio total de donaciones: 0</p>
+			<p id=idDonanteQueMasDono>Donante que mas veces donó es:</p>
+			<ul id=idListaDonantes></ul>
+			<div id="piechart" style="height:auto; width:30%; display:inline-block; margin-right:1%;" ></div>
+		</article>
+
+
+		<article>
+			<footer>
+				<p id=textoFooter>Cátedra de Programación - Programación 1</p>
+			</footer>
+		</article>
+	</section>
+</body>
+
+</html>
